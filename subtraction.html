@@ -1,0 +1,1400 @@
+<html></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>  
+<body>
+<style>
+body
+{
+   text-align:center; 
+   margin-top:2px;
+   background-color:#66B032;
+   color:#1B3409;
+}
+.btn
+{
+    width:300px;
+    height:50px;
+    margin-top:25px;
+}
+.box
+{
+    font-size:25px;
+    margin-top:20px;
+   qs qs 1px 
+}
+.head
+{
+    background-color:white;
+    border:1px solid black;
+
+}
+button
+{
+    background-color:#9BD770;
+    color:black;
+    border-radius:15px 0px 15px 0px;
+}
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+input
+{
+    width:20px;
+    height:20px;
+}
+.mainResultBox
+{
+    width:100%;
+    height:100%;
+    background-color:white;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.resultBox
+{
+    width:100%;
+    height:550px;
+    border:1px solid black;
+    
+    background-color:#66B032;
+    position:absolute;
+    top:100px;
+    left:0px;
+    overflow:scroll;
+}
+
+.cir
+{
+    width:50px;
+    height:50px;
+    border:1px solid black;
+    border-radius:50%;
+    position:absolute;
+    right:15px;
+    top:120px;
+    font-size:25px;
+    text-align:center;
+    line-height:50px;
+    
+    
+}
+
+.resultSubBox
+{
+    width:95%;
+    height:120px;
+    border:1px solid black;
+    margin-left:30px;
+    margin-top:20px;
+    box-shadow:0px 0px 10px black;
+    background-color:white;
+    position:relative;
+    
+}
+.len
+{
+    position:absolute;
+    left:5px;
+    bottom:5px;
+}
+.type
+{
+    position:absolute;
+    right:5px;
+    bottom:5px;
+}
+.deciCheck
+{
+   line-height:80px;
+}
+.incrType
+{
+    position:absolute;
+    right:20px;
+    top:5px;
+}
+.crType
+{
+    position:absolute;
+    left:20px;
+    top:5px;
+}
+#demo1 ,#demo2 ,#symA
+{
+    font-size:20px;
+}
+
+
+.numAd {
+    overflow:scroll;
+    background-color: white;
+    width:100%;
+    height: 70px;
+    border: 1px solid black;
+    line-height: 70px;
+}
+
+.timeBox
+{
+    width:70px;
+    height:70px;
+    border:1px solid black;
+    position:absolute;
+    background-color:white;
+    right:10px;
+    top:110px;
+    
+    text-align:center;
+}
+#slect2
+{
+    position:absolute;
+    top:20px;
+    left:18px;
+}
+
+#reset
+{
+    width:100px;
+    height:50px;
+    position:absolute;
+    left:10px;
+    top:125px;
+}
+
+.lowGraph
+{
+    width:360px;
+    height:540px;
+    border:1px solid black;
+    position:absolute;
+    top:110px;
+    
+    background-color:white;
+    
+}
+.mediumGraph
+{
+    width:360px;
+    height:540px;
+    border:1px solid black;
+    position:absolute;
+    top:110px;
+    
+    background-color:white;
+    display:;
+    
+}
+.hardGraph
+{
+    width:360px;
+    height:540px;
+    border:1px solid black;
+    position:absolute;
+    top:110px;
+    
+    background-color:white;
+    
+}
+
+.alertBox
+{
+    width:100%;
+    height:90%;
+    border:1px solid black;
+    background-color:#66B032;
+    position:absolute;
+    top:110px;
+    left:0px;
+    text-align:center;
+    font-size:50px;
+    line-height:150px;
+    opacity:0.9;
+
+    text-shadow:0px 0px 10px black;
+}
+#mainPage
+{
+    position:absolute;
+    top:50px;
+    right:20px;
+   width:40px;
+   height:40px;
+}
+
+</style>
+<div class="head">
+    
+<h1>x.Subtraction....</h1>
+<a href="index.html"><button id="mainPage">main</button></a>
+</div>
+<br>
+<br>
+<button id="reset">reset</button>
+<div class="mainBox">
+
+<button class="cir">
+5
+
+</button>
+
+<div class="timeBox">
+<select id="slect2">
+<option value="5">5</option>
+<option value="10">10</option>
+<option value="20">20</option>
+<option value="30">30</option>
+<option value="40">40</option>
+<option value="50">50</option>
+<option value="60">60</option>
+</select>
+</div>
+<select id="slect">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option value="hard">Hard</option>
+
+</select>
+<br>
+<br>
+<input type="checkbox"id="deci">includeDecimal
+<br>
+<br>
+<div class="slidecontainer">
+  <input type="range" min="0" max="4" value="0" class="slider" id="inp1">
+  <p>length: <span id="demoInp1"></span></p>
+</div>
+<div>score:<span id="score">0</span></div>
+<button id="st"style="width:100%;height:50px;position:absolute;top:350px;left:0px;">start</button>
+
+<div class="alertBox">time up</div>
+
+<div class="start">
+<div class="box">
+
+<div class="numAd">
+<span id="demo1">5</span><span id="symA">-</span><span id="demo2">0</span>
+</div>
+</div>
+
+<div class="btnBox"></div>
+</div>
+
+<div class="mainResultBox">
+<h2>x.Resultbox....</h2>
+<button id="help"style="position:absolute;top:10px;left:0px;top:20px;">delete all</button>
+<button id="loww">low</button>
+<button id="mediumm">medium</button>
+<button id="hardd">hard</button>
+<button id="cut"style="position:absolute;right:20px;top:20px;">back</button>
+<div class="resultBox">
+
+
+</div>
+
+</div>
+<div class="lowGraph">
+<canvas id="myChart" style="width:100%;max-width:500px;"></canvas>
+</div>
+<div class="mediumGraph">
+<canvas id="mediumData" style="width:100%;max-width:500px;"></canvas>
+</div>
+<div class="hardGraph">
+<canvas id="hardData" style="width:100%;max-width:500px;"></canvas>
+</div>
+
+
+</div>
+
+<script>
+let alertBox=document.querySelector(".alertBox");
+let mainPage=document.getElementById("mainPage");
+let mediumGraph=document.querySelector(".mediumGraph");
+mediumGraph.style.display="none";
+let hardGraph=document.querySelector(".hardGraph");
+hardGraph.style.display="none";
+let mediumData=document.getElementById("mediumData");
+let hardData=document.getElementById("hardData");
+alertBox.style.display="none";
+let lowGraph=document.querySelector(".lowGraph");
+lowGraph.style.display="none";
+
+let reset=document.getElementById("reset");
+let cir=document.querySelector(".cir");
+
+let timeBox=document.querySelector(".timeBox");
+timeBox.style.display="none";
+cir.ondblclick=()=>
+{
+    timeBox.style.display="";
+
+}
+let mainResultBox=document.querySelector(".mainResultBox");
+mainResultBox.style.display="none";
+cir.innerHTML=2;
+let mainBox=document.querySelector(".mainBox");
+let resultBox=document.querySelector(".resultBox");
+let start=document.querySelector(".start");
+start.style.display="none";
+resultBox.style.display="none";
+let open=true;
+let head=document.querySelector(".head");
+head.ondblclick=()=>
+{
+    if(open==true)
+    {
+      resultBox.style.display="";  
+      
+     mainResultBox.style.display="";
+    }
+   
+    
+}
+
+cut.onclick=()=>
+{
+
+    resultBox.style.display="none";
+    mainResultBox.style.display="none";
+    lowGraph.style.display="none";
+    mediumGraph.style.display="none";
+    hardGraph.style.display="none";
+}
+let box=document.querySelector(".box");
+let btnBox=document.querySelector(".btnBox");
+for(let i=0; i<4; i++)
+{
+    let btn=document.createElement("button");
+    btn.setAttribute("class","btn");
+    btnBox.appendChild(btn);
+    
+    
+}
+demoInp1.innerHTML=parseInt(inp1.value)+1;
+let score=document.getElementById("score");
+let sc=0;
+inp1.value=0;
+let btn=document.querySelectorAll(".btn");
+let rnd1;
+let rnd2;
+let rnd3;
+let x1;
+let x2;
+let total;
+let total1;
+let rand;
+let sumNum;
+let cc=0;
+let ii=0;
+let qs=0;
+my();
+function my()
+{
+    
+     
+    for(let i=0; i<btn.length; i++)
+    {
+        btn[i].onclick=()=>
+        {
+            if(parseInt(btn[i].innerHTML)==total&&deciC=="off")
+            {
+                my();
+               
+                add(slect.value , deciC);
+                
+                sub(slect.value , deciC);
+                mul(slect.value , deciC);
+                cc+=1;
+                sc+=1;
+                qs+=1;
+                sc1++;
+                
+                score.innerHTML=sc;
+                
+            }
+            else if(parseInt(btn[i].innerHTML)!=total&&deciC=="off")
+            {
+                
+               my();
+                
+                ii+=1;
+                qs+=1;
+                add(slect.value , deciC);
+                
+                sub(slect.value , deciC);
+                mul(slect.value , deciC);
+            }
+            
+            
+            
+            if(parseFloat(btn[i].innerHTML)==parseFloat(total)&&deciC=="on")
+            {
+                my();
+                
+                add(slect.value , deciC);
+                sub(slect.value , deciC);
+                mul(slect.value , deciC);
+                sc+=1;
+                cc+=1;
+                sc1++;
+                qs+=1;
+                
+                score.innerHTML=sc;
+            }
+            else if(parseFloat(btn[i].innerHTML)!=parseFloat(total)&&deciC=="on")
+            {
+                
+               my();
+                
+                ii+=1;
+                qs+=1;
+                add(slect.value , deciC);
+                sub(slect.value , deciC);
+                mul(slect.value , deciC);
+                
+            }
+            
+            
+            
+        }
+    }
+    
+    
+}
+let deciC="off";;
+slect.oninput=()=>
+{
+    add(slect.value , deciC);
+    sub(slect.value , deciC);
+    mul(slect.value , deciC);
+}
+inp1.oninput=()=>
+{
+    
+    sumNum=inp1.value;
+    demoInp1.innerHTML=parseInt(inp1.value)+1;
+    add(slect.value, deciC);
+    sub(slect.value , deciC);
+    mul(slect.value , deciC);
+ 
+}
+let time1;
+let sc1=0;
+st.onclick=()=>
+{
+    start.style.display="";
+    st.style.display="none";
+    slect.disabled=true;
+    deci.disabled=true;
+    inp1.disabled=true;
+    time1=setInterval(time , 1000);
+    cir.disabled=true;
+    
+}
+slect2.oninput=()=>
+{
+    x=parseInt(slect2.value);
+    cir.innerHTML=x;
+    timeBox.style.display="none";
+}
+reset.onclick=()=>
+{
+    let x=prompt("are you really want to reset it.... entre y for yes ");
+    if(x=="y")
+    {
+        
+    
+   clearInterval(time1);
+   cc+=0-cc;
+   ii+=0-ii;
+   qs+=0-qs;
+   sc1+=0-sc1;
+   cir.disabled=false;
+   x+=0-x;
+   x=parseInt(slect2.value);
+   cir.innerHTML=x;
+
+   sc+=0-sc;
+       score.innerHTML=sc;
+       st.style.display="";
+       start.style.display="none";
+       slect.disabled=false;
+    deci.disabled=false;
+    inp1.disabled=false;
+    }
+    
+    
+}
+mainPage.onclick=()=>
+{
+    clearInterval(time1);
+   cc+=0-cc;
+   ii+=0-ii;
+   qs+=0-qs;
+   sc1+=0-sc1;
+   cir.disabled=false;
+   x+=0-x;
+   x=parseInt(slect2.value);
+   cir.innerHTML=x;
+
+   sc+=0-sc;
+       score.innerHTML=sc;
+       st.style.display="";
+       start.style.display="none";
+       slect.disabled=false;
+    deci.disabled=false;
+    inp1.disabled=false;
+}
+let x=5;
+cir.innerHTML=x;
+
+
+function time()
+{
+   cir.innerHTML =x-=1;
+   
+   if(x==0)
+   {
+       
+       x+=0-x;
+       x=parseInt(slect2.value);
+       cir.innerHTML=x;
+       
+       clearInterval(time1);
+       alertBox.style.display="";
+       setTimeout(function(){
+            alertBox.style.display="none";
+       }, 1500);
+              sc+=0-sc;
+       score.innerHTML=sc;
+       st.style.display="";
+       start.style.display="none";
+       slect.disabled=false;
+    deci.disabled=false;
+    inp1.disabled=false;
+    
+    let div=document.createElement("div");
+    
+   let type=document.createElement("b");
+   let totalSolve=document.createElement("div");
+   let totalB=document.createElement("b");
+   totalB.setAttribute("class","totalB");
+   totalSolve.innerHTML=`totalAttempt:`;
+   totalB.innerHTML=qs;
+   totalSolve.appendChild(totalB);
+  
+  let scoreX=document.createElement("div");
+  let scoreB=document.createElement("b");
+  scoreX.innerHTML="score:";
+  scoreB.innerHTML =sc1;
+  scoreB.setAttribute("class","scoreB");
+  scoreX.appendChild(scoreB);
+   let incrType=document.createElement("b");
+   let crType=document.createElement("b");
+   incrType.innerHTML="incorrect:";
+   crType.innerHTML="correct:";
+   incrType.setAttribute("class","incrType");
+   crType.setAttribute("class","crType");
+   let ix=document.createElement("span");
+   ix.setAttribute("class","ixx");
+   let cx=document.createElement("span");
+   ix.innerHTML=ii;
+   cx.innerHTML=cc;
+   incrType.appendChild(ix);
+   crType.appendChild(cx);
+   let deciCheck=document.createElement("b");
+   let deciSpan=document.createElement("span");
+   deciSpan.innerHTML=deciC;
+   deciCheck.innerHTML=`decimalStatus:`;
+   deciCheck.setAttribute("class","deciCheck");
+   deciCheck.appendChild(deciSpan);
+   type.setAttribute("class","type");
+   let len=document.createElement("b");
+   len.setAttribute("class","len");
+   len.innerHTML="lengthValue:";
+   let lenSpan=document.createElement("span");
+   lenSpan.innerHTML=parseInt(inp1.value)+1;
+   lenSpan.setAttribute("class","spanLen");
+   len.appendChild(lenSpan);
+   type.innerHTML="mode:";
+  let spanType=document.createElement("span");
+  spanType.setAttribute("class","modee");
+  spanType.innerHTML=slect.value;
+  
+  type.appendChild(spanType);
+  div.appendChild(type);
+  div.appendChild(len);
+  div.appendChild(deciCheck);
+  div.appendChild(incrType);
+  div.appendChild(crType);
+  div.appendChild(totalSolve);
+  div.appendChild(scoreX);
+ div.setAttribute("class","resultSubBox");
+    resultBox.appendChild(div);
+    
+    cc+=0-cc;
+   ii+=0-ii;
+   qs+=0-qs;
+   sc1+=0-sc1;
+   resultBox.scrollTop=resultBox.scrollHeight;
+   cir.disabled=false;
+   saveX();
+   
+   }
+   
+}
+
+
+function saveX()
+{
+let all=resultBox.innerHTML;
+localStorage.setItem("xxxx1",all);
+}
+function reload()
+{
+    let all=localStorage.getItem("xxxx1");
+    resultBox.innerHTML=all;
+}
+reload();
+
+deci.oninput=()=>
+{
+    if(deci.checked==true)
+    {
+        deciC="on";
+        add(slect.value, deciC);
+        
+        sub(slect.value , deciC);
+        mul(slect.value , deciC);
+    }
+    else
+    {
+       deciC="off";
+       add(slect.value, deciC);
+       sub(slect.value , deciC);
+       mul(slect.value , deciC);
+    }
+}
+
+sumNum=0;
+add(slect.value , deciC);
+sub(slect.value , deciC);
+mul(slect.value , deciC);
+function add(symbl, deciC)
+{
+    
+    let myList=[1,10,100,1000,10000,100000];
+    
+    
+    if(symbl=="low"&&deciC=="off")
+     {
+    
+    rnd1=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd2=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    
+    
+    demo1.innerHTML=rnd1;
+    demo2.innerHTML=rnd2;
+    
+      x1=parseInt(demo1.innerHTML);
+     x2=parseInt(demo2.innerHTML);
+     
+    total1=x1-x2;
+    total=Math.floor(total1);
+    
+    rand=Math.floor(Math.random()*btn.length);
+    
+    btn[rand].innerHTML=total;
+    
+    
+    for(let i=0; i<4; i++)
+    {
+        if(rand==i)
+        {
+            continue;
+        }
+        else
+        {
+            btn[i].innerHTML=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+        }
+    }
+    
+    
+    }
+    
+    
+    if(symbl=="low"&&deciC=="on")
+
+     {
+
+    
+
+    rnd1=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    rnd2=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    
+
+    
+    
+
+    demo1.innerHTML=rnd1;
+
+    demo2.innerHTML=rnd2;
+
+    
+
+      x1=parseFloat(demo1.innerHTML);
+
+     x2=parseFloat(demo2.innerHTML);
+
+     
+
+    total1=x1-x2;
+
+    total=parseFloat(total1).toFixed(2);
+
+    
+
+    rand=Math.floor(Math.random()*btn.length);
+
+    
+
+    btn[rand].innerHTML=total;
+
+    
+
+    
+
+    for(let i=0; i<4; i++)
+
+    {
+
+        if(rand==i)
+
+        {
+
+            continue;
+
+        }
+
+        else
+
+        {
+
+            btn[i].innerHTML=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+
+        }
+
+    }
+
+    
+
+    
+
+    }
+
+    
+
+    
+
+    
+
+
+    
+    
+   
+          
+ 
+    
+}
+
+
+
+function sub(symbl, deciC)
+{
+    
+    let myList=[1,10,100,1000,10000,100000];
+    
+    
+    if(symbl=="medium"&&deciC=="off")
+     {
+    
+    rnd1=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd2=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd3=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    
+    
+    demo1.innerHTML=`${rnd1}-${rnd3}`;
+    demo2.innerHTML=rnd2;
+    
+      x1=parseInt(demo1.innerHTML);
+     x2=parseInt(demo2.innerHTML);
+     
+    total1=x1-x2-rnd3;
+    total=Math.floor(total1);
+    
+    rand=Math.floor(Math.random()*btn.length);
+    
+    btn[rand].innerHTML=total;
+    
+    
+    for(let i=0; i<4; i++)
+    {
+        if(rand==i)
+        {
+            continue;
+        }
+        else
+        {
+            btn[i].innerHTML=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+        }
+    }
+    
+    
+    }
+    
+    
+    if(symbl=="medium"&&deciC=="on")
+
+     {
+
+    
+
+    rnd1=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    rnd2=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    rnd3=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    
+
+    
+    
+
+    demo1.innerHTML=`${rnd1}-${rnd3}`;
+
+    demo2.innerHTML=rnd2;
+
+    
+
+      x1=parseFloat(demo1.innerHTML);
+
+     x2=parseFloat(demo2.innerHTML);
+
+     
+
+    total1=x1-x2-parseFloat(rnd3);
+
+    total=parseFloat(total1).toFixed(2);
+
+    
+
+    rand=Math.floor(Math.random()*btn.length);
+
+    
+
+    btn[rand].innerHTML=total;
+
+    
+
+    
+
+    for(let i=0; i<4; i++)
+
+    {
+
+        if(rand==i)
+
+        {
+
+            continue;
+
+        }
+
+        else
+
+        {
+
+            btn[i].innerHTML=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+
+        }
+
+    }
+
+    
+
+    
+
+    }
+
+    
+
+    
+
+    
+
+
+    
+    
+   
+          
+ 
+    
+}
+
+
+let rnd4;
+
+function mul(symbl, deciC)
+{
+    
+    let myList=[1,10,100,1000,10000,100000];
+    
+    
+    if(symbl=="hard"&&deciC=="off")
+     {
+    
+    rnd1=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd2=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd3=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    rnd4=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+    
+    
+    demo1.innerHTML=`${rnd1}-${rnd3}-${rnd4}`;
+    demo2.innerHTML=rnd2;
+    
+      x1=parseInt(demo1.innerHTML);
+     x2=parseInt(demo2.innerHTML);
+     
+    total1=x1-x2-rnd3-rnd4;
+    total=Math.floor(total1);
+    
+    rand=Math.floor(Math.random()*btn.length);
+    
+    btn[rand].innerHTML=total;
+    
+    
+    for(let i=0; i<4; i++)
+    {
+        if(rand==i)
+        {
+            continue;
+        }
+        else
+        {
+            btn[i].innerHTML=Math.floor(Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)];
+    
+        }
+    }
+    
+    
+    }
+    
+    
+    if(symbl=="hard"&&deciC=="on")
+
+     {
+
+    
+
+    rnd1=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    rnd2=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    rnd3=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    
+    rnd4=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+    
+    
+
+    
+    
+
+    demo1.innerHTML=`${rnd1}-${rnd3}-${rnd4}`;
+
+    demo2.innerHTML=rnd2;
+
+    
+
+      x1=parseFloat(demo1.innerHTML);
+
+     x2=parseFloat(demo2.innerHTML);
+
+     
+
+    total1=x1-x2-parseFloat(rnd3)-parseFloat(rnd4);
+
+    total=parseFloat(total1).toFixed(2);
+
+    
+
+    rand=Math.floor(Math.random()*btn.length);
+
+    
+
+    btn[rand].innerHTML=total;
+
+    
+
+    
+
+    for(let i=0; i<4; i++)
+
+    {
+
+        if(rand==i)
+
+        {
+
+            continue;
+
+        }
+
+        else
+
+        {
+
+            btn[i].innerHTML=((Math.random()*(myList[parseInt(sumNum)+1]-myList[parseInt(sumNum)]))+myList[parseInt(sumNum)]).toFixed(2);
+
+        }
+
+    }
+
+    
+
+    
+
+    }
+
+    
+
+    
+
+    
+
+
+    
+    
+   
+          
+ 
+    
+}
+
+
+
+
+
+let s1=true;
+let s2=true;
+let s3=true;
+
+loww.onclick=()=>
+{
+    let scoreList=[];
+    let totalList=[];
+    let totalQuestion=[];
+    let totalIncorrct=[];
+    let scoreB=document.querySelectorAll(".scoreB");
+    let modee=document.querySelectorAll(".modee");
+    let totalB=document.querySelectorAll(".totalB");
+    let ix=document.querySelectorAll(".ixx");
+ 
+    for(let i=0; i<modee.length; i++)
+    {
+        if(modee[i].innerHTML=="low")
+        {
+            totalList.push(modee[i].innerHTML);
+            scoreList.push(parseInt(scoreB[i].innerHTML));
+            totalQuestion.push(parseInt(totalB[i].innerHTML));
+            totalIncorrct.push(parseInt(ix[i].innerHTML));
+        }
+    }
+    let totalAttemptlist=totalList.length;
+    let totalCorrectquestion=0;
+    let totalIncorrectquestion=0;
+    let totalQuestionlist=0;
+    for(let i=0; i<scoreList.length; i++)
+    {
+        totalCorrectquestion+=scoreList[i];
+        totalIncorrectquestion+=totalIncorrct[i];
+  totalQuestionlist+=totalQuestion[i];      
+    }
+    
+    
+    
+    
+const xValues = ["correct", "incorrect", "totalquestion", "totalAttempt"];
+const yValues = [totalCorrectquestion, totalIncorrectquestion, totalQuestionlist, totalAttemptlist];
+
+ const barColors = [
+ 
+  "#00aba9",
+   "#b91d47",
+  "#2b5797",
+  "#e8c3b9"
+];
+
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "total data of the question that play in low mode...."
+    }
+  }
+});
+    
+   
+    if(s1==true)
+{
+    lowGraph.style.display="";
+    s1=false;
+    mediumGraph.style.display="none";
+    hardGraph.style.display="none";
+
+}
+else
+{
+
+    lowGraph.style.display="none";
+    s1=true;
+}
+    
+    
+   
+   
+
+   
+    
+}
+
+
+
+
+mediumm.onclick=()=>
+{
+    let scoreList=[];
+    let totalList=[];
+    let totalQuestion=[];
+    let totalIncorrct=[];
+    let scoreB=document.querySelectorAll(".scoreB");
+    let modee=document.querySelectorAll(".modee");
+    let totalB=document.querySelectorAll(".totalB");
+    let ix=document.querySelectorAll(".ixx");
+ 
+    for(let i=0; i<modee.length; i++)
+    {
+        if(modee[i].innerHTML=="medium")
+        {
+            totalList.push(modee[i].innerHTML);
+            scoreList.push(parseInt(scoreB[i].innerHTML));
+            totalQuestion.push(parseInt(totalB[i].innerHTML));
+            totalIncorrct.push(parseInt(ix[i].innerHTML));
+        }
+    }
+    let totalAttemptlist=totalList.length;
+    let totalCorrectquestion=0;
+    let totalIncorrectquestion=0;
+    let totalQuestionlist=0;
+    for(let i=0; i<scoreList.length; i++)
+    {
+        totalCorrectquestion+=scoreList[i];
+        totalIncorrectquestion+=totalIncorrct[i];
+  totalQuestionlist+=totalQuestion[i];      
+    }
+    
+    
+    
+    
+const xValues = ["correct", "incorrect", "totalquestion", "totalAttempt"];
+const yValues = [totalCorrectquestion, totalIncorrectquestion, totalQuestionlist, totalAttemptlist];
+
+ const barColors = [
+ 
+  "#00aba9",
+   "#b91d47",
+  "#2b5797",
+  "#e8c3b9"
+];
+
+
+new Chart("mediumData", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "total data of the question that play in medium mode...."
+    }
+  }
+});
+    
+if(s2==true)
+{
+    mediumGraph.style.display="";
+    s2=false;
+    lowGraph.style.display="none";
+    hardGraph.style.display="none";
+
+}
+else{
+    mediumGraph.style.display="none";
+    s2=true;
+}
+    
+    
+}
+
+
+hardd.onclick=()=>
+{
+    let scoreList=[];
+    let totalList=[];
+    let totalQuestion=[];
+    let totalIncorrct=[];
+    let scoreB=document.querySelectorAll(".scoreB");
+    let modee=document.querySelectorAll(".modee");
+    let totalB=document.querySelectorAll(".totalB");
+    let ix=document.querySelectorAll(".ixx");
+ 
+    for(let i=0; i<modee.length; i++)
+    {
+        if(modee[i].innerHTML=="low")
+        {
+            totalList.push(modee[i].innerHTML);
+            scoreList.push(parseInt(scoreB[i].innerHTML));
+            totalQuestion.push(parseInt(totalB[i].innerHTML));
+            totalIncorrct.push(parseInt(ix[i].innerHTML));
+        }
+    }
+    let totalAttemptlist=totalList.length;
+    let totalCorrectquestion=0;
+    let totalIncorrectquestion=0;
+    let totalQuestionlist=0;
+    for(let i=0; i<scoreList.length; i++)
+    {
+        totalCorrectquestion+=scoreList[i];
+        totalIncorrectquestion+=totalIncorrct[i];
+  totalQuestionlist+=totalQuestion[i];      
+    }
+    
+    
+    
+    
+const xValues = ["correct", "incorrect", "totalquestion", "totalAttempt"];
+const yValues = [totalCorrectquestion, totalIncorrectquestion, totalQuestionlist, totalAttemptlist];
+
+ const barColors = [
+ 
+  "#00aba9",
+   "#b91d47",
+  "#2b5797",
+  "#e8c3b9"
+];
+
+
+new Chart("hardData", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "total data of the question that play in hard mode...."
+    }
+  }
+});
+    
+   
+    
+if(s3==true)
+{
+    hardGraph.style.display="";
+    s3=false;
+    mediumGraph.style.display="none";
+    lowGraph.style.display="none";
+
+}
+else{
+    hardGraph.style.display="none";
+    s3=true;
+}
+    
+    
+}
+
+  
+
+
+help.onclick=()=>
+{
+   let resultSubBox=document.querySelectorAll(".resultSubBox");
+   for(let i=0; i<resultSubBox.length; i++)
+   {
+       resultSubBox[i].parentNode.removeChild(resultSubBox[i]);
+       saveX();
+       
+   }
+   mediumGraph.style.display="none";
+   lowGraph.style.display="none";
+   hardGraph.style.display="none";
+   
+}
+
+
+
+
+
+</script>
+</body>
+</html>
